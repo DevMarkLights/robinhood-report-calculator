@@ -11,7 +11,7 @@ def addToMap(symbol,amount):
     else:
         optionStocksP_L[symbol] = optionStocksP_L[symbol] + amount
 
-with open('May 1, 2025 -  May 31, 2025.csv', 'r') as file:
+with open('Jan 1, 2025 – May 31, 2025.csv', 'r') as file:
     csv_reader = csv.reader(file)
     i = 0
     file_name=file.name
@@ -39,7 +39,6 @@ print("Total income:                  $"+ str(round(amountMadeThisMonthFromOptio
 
 
 table=[]
-# keys = optionStocksP_L.keys
 for symbol in optionStocksP_L:
     table.append([symbol,optionStocksP_L.get(symbol)])
 
@@ -47,7 +46,7 @@ print(tabulate(table,['symbol','amount'],'fancy_outline'))
 
 with open('ouput.txt','w') as file:
     file.write(file_name+"\n\n")
-    file.write("Amount made from options:    $"+ str(round(amountMadeThisMonthFromOptions,2))+"\n")
+    file.write("Amount made from options:      $"+ str(round(amountMadeThisMonthFromOptions,2))+"\n")
     file.write("Dividends made:                $"+ str(round(dividendIncomeThisMonth,2))+"\n")
     file.write("Transfers to spending account: $"+ str(round(transfersToSpending,2))+"\n")
     file.write("Total income:                  $"+ str(round(amountMadeThisMonthFromOptions+dividendIncomeThisMonth,2))+"\n")
